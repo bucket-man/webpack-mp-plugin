@@ -43,7 +43,7 @@ export class WabpackMpPlugin {
   apply(compiler: CompilerExt) {
     if (compiler.hooks && compiler.hooks.done) {
 
-      compiler.hooks.done.tapAsync('WebpackOSSPlusPlugin', (state: Stats, cb) => {
+      compiler.hooks.done.tapAsync('WabpackMpPlugin', (state: Stats, cb) => {
         this.pluginDoneFn(state, cb)
       })
     } else {
@@ -71,8 +71,6 @@ export class WabpackMpPlugin {
     } else {
       this.mpciUpload()
     }
-    console.log('pluginEmitFnP:', new Date().getTime())
-    console.log(this.config)
     cb()
   }
 
